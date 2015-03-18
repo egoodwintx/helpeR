@@ -41,7 +41,11 @@ find.freq <- function(x) {
 }
 
 
-
+## convert factor vector to numeric
+factor2numeric = function(facvect) {
+  numeric = as.numeric(levels(facvect)[facvect])
+  numeric
+}
 
 ## useful for using ggplot with forecast package (Holt-Winters, etc.)
 
