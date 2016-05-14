@@ -12,6 +12,9 @@
 ## changelog:
 ##
 
+require(sqldf)
+require(dplyr)
+
 as.numeric.com = function(y) {
   ## converts string with commas into single number
   as.numeric(gsub(",","", y))
@@ -187,4 +190,12 @@ multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
     }
   }
   return(p)
+}
+
+## read small subset of the data for a file
+## uses sqldf so that you can read large data files
+readsubsetfile = function(fname, nlines) {
+  sqlq = paste("select * from ", fname, "order by random(*) limit ", nlines)
+  subfile = read.csv.sql(fname, sql = sqlq)
+  subfile
 }
