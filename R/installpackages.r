@@ -34,6 +34,7 @@ packlist = c("ggplot2",
              "shiny",
              "httpuv",
              "devtools",
-             "testthat")
+             "testthat",
+             "purrr")
 
 install.packages(packlist)
