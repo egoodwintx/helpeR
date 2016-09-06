@@ -35,6 +35,8 @@ packlist = c("ggplot2",
              "httpuv",
              "devtools",
              "testthat",
-             "purrr")
+             "purrr",
+             "RMySQL",
+             "rglpk")
 
 install.packages(packlist)
