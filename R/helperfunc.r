@@ -199,3 +199,22 @@ readsubsetfile = function(fname, nlines) {
   subfile = read.csv.sql(fname, sql = sqlq)
   subfile
 }
+
+# ## number of weekdays between two dates
+# Dates1 <- as.Date("2011-01-30") + rep(0, 10)
+# Dates2 <- as.Date("2011-02-04") + seq(0, 9)
+# Nweekdays(Dates1, Dates2)
+Nweekdays <- Vectorize(function(a, b) 
+  sum(!weekdays(seq(a, b, "days")) %in% c("Saturday", "Sunday")))
+
+## create test/training sets from dataframes
+testtrainsplit = function(df, trainsize) {
+
+  #Sample Indexes
+  indexes = sample(1:nrow(df), size=trainsize*nrow(df))
+  
+  # Split data
+  test = df[indexes,]
+  train = df[-indexes,]
+  return(c(train, test))
+}
