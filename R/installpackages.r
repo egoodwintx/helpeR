@@ -37,6 +37,7 @@ packlist = c("ggplot2",
              "testthat",
              "purrr",
              "RMySQL",
-             "rglpk")
+             "rglpk",
+             "tidyquant")
 
 install.packages(packlist)
